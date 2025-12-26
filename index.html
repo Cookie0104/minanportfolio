@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>我的作品集 - 首頁</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-content">
+        <div class="logo">Min-An's Portfolio</div>
+        <button class="menu-toggle" id="menuToggle" aria-label="選單">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="nav-overlay" id="navOverlay"></div>
+        <nav class="nav" id="mainNav">
+          <a href="index.html" class="nav-link active" data-i18n="nav.home">首頁</a>
+          <a href="about.html" class="nav-link" data-i18n="nav.about">關於我</a>
+          <a href="works.html" class="nav-link" data-i18n="nav.works">作品集</a>
+          <a href="gallery.html" class="nav-link" data-i18n="nav.gallery">圖片集</a>
+          <a href="contact.html" class="nav-link" data-i18n="nav.contact">留言互動</a>
+          <div class="lang-switch">
+            <button class="lang-btn active" data-lang="zh">中</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="hero">
+        <div class="hero-text">
+          <h1>
+            <span data-i18n="home.hero.title">你好，我是</span>
+            <span class="accent">Min An</span>
+          </h1>
+          <p class="hero-title-role" data-i18n="home.hero.subtitle">
+            一位專注於打造優質使用者體驗的前端 / 全端工程師。
+          </p>
+          <p class="hero-subtitle" data-i18n="home.hero.subtitle2">
+            一位專注於打造優質使用者體驗的前端 / 全端工程師。
+          </p>
+          <p class="hero-description" data-i18n="home.hero.desc">
+            這裡整理了我的工作經歷、代表作品與聯絡方式，歡迎逛逛，也可以在留言頁和我互動。
+          </p>
+          <div class="hero-actions">
+            <a href="works.html" class="btn primary" data-i18n="home.hero.viewWorks"
+              >查看作品</a
+            >
+            <a href="contact.html" class="btn ghost" data-i18n="home.hero.goContact"
+              >前往留言</a
+            >
+          </div>
+        </div>
+        <div class="canvas-pane">
+          <div class="canvas-header">
+            <h2 class="canvas-title">靈感實驗室</h2>
+            <p class="canvas-subtitle">
+              存下自己的設計吧：）
+            </p>
+          </div>
+          <div class="canvas-body">
+            <div class="canvas-wrapper">
+              <canvas id="drawCanvas"></canvas>
+            </div>
+            <div class="canvas-tool-dock">
+              <div class="tool-brush-control" title="筆刷設定">
+                <label class="tool-btn color-btn" title="顏色">
+                  <input type="color" id="brushColor" value="#8b6f47" />
+                  <div class="size-circle" id="sizeCircle"></div>
+                </label>
+                <input
+                  type="range"
+                  id="brushSize"
+                  class="vertical-range"
+                  min="2"
+                  max="20"
+                  value="6"
+                />
+              </div>
+              <button
+                id="clearCanvas"
+                class="tool-btn"
+                type="button"
+                title="清除畫布"
+              >
+                <span class="tool-glyph">🧹</span>
+              </button>
+              <button
+                id="downloadCanvas"
+                class="tool-btn"
+                type="button"
+                title="下載畫布"
+              >
+                <span class="tool-glyph">📁↓</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        © <span id="year"></span> minan by vibe coding
+      </p>
+    </footer>
+
+    <script src="lang.js"></script>
+    <script src="draw.js"></script>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+      
+      // 側邊欄控制
+      const menuToggle = document.getElementById("menuToggle");
+      const mainNav = document.getElementById("mainNav");
+      const navOverlay = document.getElementById("navOverlay");
+      
+      function toggleNav() {
+        mainNav.classList.toggle("active");
+        menuToggle.classList.toggle("active");
+        if (navOverlay) {
+          navOverlay.classList.toggle("active");
+        }
+      }
+      
+      function closeNav() {
+        mainNav.classList.remove("active");
+        menuToggle.classList.remove("active");
+        if (navOverlay) {
+          navOverlay.classList.remove("active");
+        }
+      }
+      
+      if (menuToggle && mainNav) {
+        menuToggle.addEventListener("click", toggleNav);
+        
+        if (navOverlay) {
+          navOverlay.addEventListener("click", closeNav);
+        }
+        
+        // 點擊導航連結時關閉側邊欄
+        mainNav.querySelectorAll(".nav-link").forEach(link => {
+          link.addEventListener("click", closeNav);
+        });
+      }
+    </script>
+  </body>
+  </html>
+
+

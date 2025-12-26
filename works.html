@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>專案介紹 - 我的作品集</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-content">
+        <div class="logo">Min-An's Portfolio</div>
+        <button class="menu-toggle" id="menuToggle" aria-label="選單">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="nav-overlay" id="navOverlay"></div>
+        <nav class="nav" id="mainNav">
+          <a href="index.html" class="nav-link" data-i18n="nav.home">首頁</a>
+          <a href="about.html" class="nav-link" data-i18n="nav.about">關於我</a>
+          <a href="works.html" class="nav-link active" data-i18n="nav.works"
+            >作品集</a
+          >
+          <a href="gallery.html" class="nav-link" data-i18n="nav.gallery"
+            >圖片集</a
+          >
+          <a href="contact.html" class="nav-link" data-i18n="nav.contact"
+            >留言互動</a
+          >
+          <div class="lang-switch">
+            <button class="lang-btn active" data-lang="zh">中</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="page-header">
+        <h1 data-i18n="works.title">作品集</h1>
+        <p data-i18n="works.subtitle">展示你最有代表性的專案或作品。</p>
+      </section>
+
+      <section class="card-grid">
+        <article class="card" data-project="1">
+          <div class="card-image">
+            <img src="https://via.placeholder.com/400x250/f1e3d1/8b5a36?text=專案圖片+A" alt="專案名稱 A" />
+          </div>
+          <div class="card-badge" data-i18n="works.card1.badge">Web 專案</div>
+          <h2 class="card-title" data-i18n="works.card1.title">專案名稱 A</h2>
+          <p class="card-desc" data-i18n="works.card1.desc">
+            簡短介紹這個專案的目的、你在其中負責的部分，以及使用到的技術。
+          </p>
+          <ul class="tag-list">
+            <li class="tag">React</li>
+            <li class="tag">API</li>
+          </ul>
+        </article>
+
+        <article class="card" data-project="2">
+          <div class="card-image">
+            <img src="https://via.placeholder.com/400x250/f1e3d1/8b5a36?text=專案圖片+B" alt="專案名稱 B" />
+          </div>
+          <div class="card-badge" data-i18n="works.card2.badge">UI 設計</div>
+          <h2 class="card-title" data-i18n="works.card2.title">專案名稱 B</h2>
+          <p class="card-desc" data-i18n="works.card2.desc">
+            如果你有設計相關的作品，可以放一些介面設計、流程圖或原型的連結。
+          </p>
+          <ul class="tag-list">
+            <li class="tag">Figma</li>
+            <li class="tag">Prototype</li>
+          </ul>
+        </article>
+
+        <article class="card" data-project="3">
+          <div class="card-image">
+            <img src="https://via.placeholder.com/400x250/f1e3d1/8b5a36?text=專案圖片+C" alt="個人小作品" />
+          </div>
+          <div class="card-badge" data-i18n="works.card3.badge">
+            Side Project
+          </div>
+          <h2 class="card-title" data-i18n="works.card3.title">個人小作品</h2>
+          <p class="card-desc" data-i18n="works.card3.desc">
+            可以放一些你在下班後或學習期間做的小工具、小遊戲或實驗性專案。
+          </p>
+          <ul class="tag-list">
+            <li class="tag">JavaScript</li>
+            <li class="tag">Side Project</li>
+          </ul>
+        </article>
+      </section>
+    </main>
+
+    <!-- 專案詳情彈窗 -->
+    <div class="project-modal" id="projectModal">
+      <div class="modal-overlay" id="modalOverlay"></div>
+      <div class="modal-content-wrapper">
+        <button class="modal-close" id="modalClose" aria-label="關閉">×</button>
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="modal-badge" id="modalBadge"></div>
+            <h2 class="modal-title" id="modalTitle"></h2>
+          </div>
+          <div class="modal-body" id="modalBody">
+            <!-- 詳細內容會在這裡動態插入 -->
+          </div>
+          <div class="modal-footer" id="modalFooter">
+            <!-- 連結會在這裡動態插入 -->
+          </div>
+        </div>
+        <aside class="modal-sidebar" id="modalSidebar">
+          <nav class="modal-nav" id="modalNav">
+            <!-- 滾動監聽導航會在這裡動態生成 -->
+          </nav>
+        </aside>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <p>
+        © <span id="year"></span> minan by vibe coding
+      </p>
+    </footer>
+
+    <script src="lang.js"></script>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+      
+      // 側邊欄控制
+      const menuToggle = document.getElementById("menuToggle");
+      const mainNav = document.getElementById("mainNav");
+      const navOverlay = document.getElementById("navOverlay");
+      
+      function toggleNav() {
+        mainNav.classList.toggle("active");
+        menuToggle.classList.toggle("active");
+        if (navOverlay) {
+          navOverlay.classList.toggle("active");
+        }
+      }
+      
+      function closeNav() {
+        mainNav.classList.remove("active");
+        menuToggle.classList.remove("active");
+        if (navOverlay) {
+          navOverlay.classList.remove("active");
+        }
+      }
+      
+      if (menuToggle && mainNav) {
+        menuToggle.addEventListener("click", toggleNav);
+        
+        if (navOverlay) {
+          navOverlay.addEventListener("click", closeNav);
+        }
+        
+        mainNav.querySelectorAll(".nav-link").forEach(link => {
+          link.addEventListener("click", closeNav);
+        });
+      }
+
+      // 專案詳情彈窗
+      const projectModal = document.getElementById("projectModal");
+      const modalOverlay = document.getElementById("modalOverlay");
+      const modalClose = document.getElementById("modalClose");
+      const modalBadge = document.getElementById("modalBadge");
+      const modalTitle = document.getElementById("modalTitle");
+      const modalBody = document.getElementById("modalBody");
+      const modalFooter = document.getElementById("modalFooter");
+
+      // 專案詳細內容資料
+      const projectData = {
+        1: {
+          badge: ["App", "跨國專案", "行動銀行"],
+          title: "UCB Mobile Banking App",
+          description: "簡短介紹這個專案的目的、你在其中負責的部分，以及使用到的技術。",
+          tags: ["React", "API"],
+          link: "#",
+          linkText: "查看 Demo / GitHub",
+          details: `
+            <h3>專案概述</h3>
+            <p>隨著柬埔寨經濟快速發展，行動銀行需求大幅提升。本專案為UCB(銀行子行)打造在地化數位金融服務，自2018年由團隊從零建置，持續迭代功能與體驗，提升用戶觸及率與黏著度。</p>
+            
+            <h3>負責內容</h3>
+            <ul>
+              <li>2019｜UI 設計：延續既有風格，針對新功能提出設計解法</li>
+              <li>2023｜UX 規劃：負責 Wireframe 與流程設計、重新梳理核心體驗</li>
+              <li>建立設計規範 Library，並將工具從 Sketch 轉換為 Figma</li>
+              <li>整合翻譯詞彙表、設計多語系介面（柬文、英文、中文）</li>
+              <li>跨部門協作：與 PM、IT、BA 及柬國主管機關協作</li>
+              <li>2024｜執行使用者研究：NPS、KANO 分析、易用性測試</li>
+            </ul>
+            
+            <h3>專案成效</h3>
+            <ul>
+              <li>流程效能提升：導入 Figma 促進跨部門協作與即時設計溝通</li>
+              <li>系統化設計管理：建立設計系統與元件庫，整理 UI 元件與規範，提升接手效率並降低交接風險</li>
+              <li>用戶滿意度提升：自 2019 年起 NPS 淨推薦值穩定成長</li>
+              <li>更貼近在地需求：翻譯標準化與文化語境調整，提升理解與好感度</li>
+              <li>數據導向決策：導入 KANO 模型提升需求優先度決策效率，降低試錯成本</li>
+            </ul>
+            
+            <div class="project-image">
+              <p><strong>Wireframe設計階段(第三方支付)</strong></p>
+              <img src="https://via.placeholder.com/800x450/f1e3d1/8b5a36?text=Wireframe設計階段" alt="Wireframe設計階段" />
+            </div>
+            
+            <div class="project-image">
+              <p><strong>Mockup設計階段(房貸)</strong></p>
+              <p style="font-size: 0.9rem; color: #7a7162; margin: 0.5rem 0;">柬埔寨國旗為深藍色底，App使用深藍為主題，搭配主要顏色為玉山銀行的企業色。</p>
+              <img src="https://via.placeholder.com/800x450/f1e3d1/8b5a36?text=Mockup設計階段" alt="Mockup設計階段" />
+            </div>
+            
+            <h3>專案重點與挑戰</h3>
+            
+            <h4>語言與排版的挑戰</h4>
+            <p>柬埔寨國人主要使用語言有三種，App必須皆支援；因此在設計的時候，需要盡量保持介面上的彈性，不去限制文字區塊的寬度，方能載入三種語言時，在介面上完整顯示。</p>
+            
+            <h4>支援多語系App設計要點</h4>
+            <ul>
+              <li>避免文字區塊限制寬度，確保不同語言皆能良好呈現</li>
+              <li>建立翻譯對照表，標準化、一致化 Wording 並提升溝通效率</li>
+            </ul>
+            
+            <h4>用語的文化差異</h4>
+            <p>初期使用 Transfer-in/out Account等銀行常用術語，易用性測試後改為當地更習慣的 From/To Account，提升用語親和力，此後新功能的翻譯皆與當地人討論用語，提升認同感與理解度。</p>
+            
+            <div class="project-image">
+              <img src="https://via.placeholder.com/800x450/f1e3d1/8b5a36?text=用語文化差異示例" alt="用語文化差異示例" />
+            </div>
+            
+            <h4>維護設計一致性</h4>
+            <p>此專案為大型維運專案，歷時長久，團隊成員人事變動頻繁，App經手許多設計師以及工程師，導致前後期產品元素及想法因人而異。為達成一致性，團隊決議轉換工具，由Sketch改為Figma，整理App設計規範，建立Components & Library，以確保未來接手之設計師有規範可遵循。</p>
+            
+            <div class="project-image">
+              <img src="https://via.placeholder.com/800x450/f1e3d1/8b5a36?text=於Figma建立設計規範與元件Library" alt="於Figma建立設計規範與元件Library" />
+            </div>
+            <p style="font-size: 0.9rem; color: #7a7162; margin-top: 0.5rem;">於 Figma 建立設計規範與元件 Library</p>
+            <p style="font-size: 0.9rem; color: #7a7162;">製作設計規範網站，協助前端工程師對齊設計細節</p>
+            
+            <h4>使用習慣 vs 設計趨勢</h4>
+            <p>東南亞用戶偏好「九宮格首頁」，與台灣常見個人化首頁不同，2023年團隊根據市場觀察調整為九宮格首頁，並追蹤競品設計走向。</p>
+            
+            <div class="project-image">
+              <img src="https://via.placeholder.com/800x450/f1e3d1/8b5a36?text=UCB手機銀行首頁設計演進" alt="UCB手機銀行首頁設計演進" />
+            </div>
+            <p style="font-size: 0.9rem; color: #7a7162; margin-top: 0.5rem;">UCB 手機銀行的首頁設計經過不斷演進，逐步對齊我們對當地用戶習慣與偏好的觀察。</p>
+            <p style="font-size: 0.9rem; color: #7a7162;">2023年底出現戲劇化的反轉：競品後續改版，反而往個人化首頁發展</p>
+            
+            <div class="project-image">
+              <img src="https://via.placeholder.com/800x450/f1e3d1/8b5a36?text=2023年競品改版" alt="2023年競品改版" />
+            </div>
+            <p style="font-size: 0.9rem; color: #7a7162; margin-top: 0.5rem;">2023 年，當地主要競品大改版，明顯趨向個人化首頁設計。</p>
+            
+            <h4>產品策略的選擇與思考</h4>
+            <p>設計該「迎合」當地習慣，或「引導」行為改變？</p>
+            <p>每項決策前，若能先透過訪談/問卷/數據了解真實需求，將能引導產品邁向更符合期待的發展方向。</p>
+            <p>此後，針對 BA 團隊提出的需求，我們會盡可能尋找相關數據進行分析，協助釐清背後的實際問題，以驗證需求的真實性與合理性。</p>
+            
+            <div class="project-image">
+              <img src="https://via.placeholder.com/800x450/f1e3d1/8b5a36?text=詳細資訊頁面改版建議項目" alt="詳細資訊頁面改版建議項目" />
+            </div>
+            
+            <h3>專案反思</h3>
+            
+            <h4>文化距離與同理</h4>
+            <p>由於目標族群與我們有很大的文化差異，本案讓我意識到設計思維不能以自身經驗為中心，需深入觀察在地使用習慣並反覆驗證假設。未來若能在初期就投入更多使用者研究資源，將能更有效掌握市場趨勢與真實需求，打造更貼近人心的產品體驗。</p>
+            
+            <h4>導入使用者研究分析需求</h4>
+            <p>因應本次「九宮格設計」專案的使用回饋，以及過往部分功能使用率偏低的經驗，團隊決議每年定期導入 KANO 分析，作為需求優先順序的客觀依據，協助業務單位聚焦關鍵功能，避免資源與時間浪費在低效開發上。</p>
+          `
+        },
+        2: {
+          badge: "UI 設計",
+          title: "專案名稱 B",
+          description: "如果你有設計相關的作品，可以放一些介面設計、流程圖或原型的連結。",
+          tags: ["Figma", "Prototype"],
+          link: "#",
+          linkText: "查看設計稿",
+          details: `
+            <h3>設計目標</h3>
+            <p>說明這個設計專案的目標和要解決的問題。</p>
+            <h3>設計過程</h3>
+            <p>描述設計的流程，包括使用者研究、線框圖、原型設計等階段。</p>
+            <h3>設計亮點</h3>
+            <p>突出這個設計的創新點和特色功能。</p>
+            <h3>設計成果</h3>
+            <p>展示設計最終的成果和使用者反饋。</p>
+          `
+        },
+        3: {
+          badge: "Side Project",
+          title: "個人小作品",
+          description: "可以放一些你在下班後或學習期間做的小工具、小遊戲或實驗性專案。",
+          tags: ["JavaScript", "Side Project"],
+          link: "#",
+          linkText: "查看更多",
+          details: `
+            <h3>專案動機</h3>
+            <p>說明為什麼想做這個專案，是為了解決什麼問題或學習什麼技術。</p>
+            <h3>開發過程</h3>
+            <p>描述開發過程中遇到的挑戰和如何解決。</p>
+            <h3>技術實現</h3>
+            <p>詳細說明使用的技術和實現方式。</p>
+            <h3>未來規劃</h3>
+            <p>描述這個專案未來的改進方向和功能擴展計劃。</p>
+          `
+        }
+      };
+
+      function openModal(projectId) {
+        const project = projectData[projectId];
+        if (!project) return;
+
+        // 更新 badge（多個標籤）
+        if (Array.isArray(project.badge)) {
+          modalBadge.innerHTML = project.badge.map(b => `<span class="badge-tag">${b}</span>`).join('');
+        } else {
+          modalBadge.textContent = project.badge;
+        }
+        modalTitle.textContent = project.title;
+        modalBody.innerHTML = project.details;
+        
+        // 重新創建標籤和連結
+        modalFooter.innerHTML = `
+          <ul class="tag-list">
+            ${project.tags.map(tag => `<li class="tag">${tag}</li>`).join('')}
+          </ul>
+          <a href="${project.link}" class="text-link">${project.linkText}</a>
+        `;
+
+        // 生成滾動監聽導航
+        setTimeout(() => {
+          generateModalNav();
+        }, 200);
+
+        projectModal.classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+
+      function generateModalNav() {
+        const modalNav = document.getElementById("modalNav");
+        const navTitles = ["專案概述", "負責內容", "專案成效", "專案重點與挑戰", "專案反思"];
+        
+        let navHTML = "";
+        navTitles.forEach((title, index) => {
+          const id = `modal-section-${index}`;
+          navHTML += `<a href="#${id}" class="modal-nav-link" data-section="${title}">${title}</a>`;
+        });
+
+        modalNav.innerHTML = navHTML;
+
+        // 等待 DOM 更新後再設置 id
+        setTimeout(() => {
+          // 為對應的標題添加 id
+          const headings = modalBody.querySelectorAll("h3");
+          headings.forEach((heading) => {
+            const headingText = heading.textContent.trim();
+            if (navTitles.includes(headingText)) {
+              const index = navTitles.indexOf(headingText);
+              heading.id = `modal-section-${index}`;
+              heading.setAttribute("id", `modal-section-${index}`);
+            }
+          });
+
+          // 添加點擊事件
+          modalNav.querySelectorAll(".modal-nav-link").forEach(link => {
+            link.addEventListener("click", (e) => {
+              e.preventDefault();
+              const targetId = link.getAttribute("href");
+              // 嘗試兩種方式查找元素
+              const targetElement = document.getElementById(targetId.replace("#", "")) || 
+                                   document.querySelector(targetId);
+              
+              if (targetElement && modalBody) {
+                // 直接使用 offsetTop，因為目標元素在 modalBody 內部
+                const scrollTop = targetElement.offsetTop - 20;
+                
+                modalBody.scrollTo({
+                  top: Math.max(0, scrollTop),
+                  behavior: "smooth"
+                });
+              }
+            });
+          });
+
+          // 移除舊的監聽器（如果有的話）
+          modalBody.removeEventListener("scroll", updateModalActiveNav);
+          
+          // 監聽滾動事件
+          updateModalActiveNav();
+          modalBody.addEventListener("scroll", updateModalActiveNav);
+        }, 100);
+      }
+
+      function updateModalActiveNav() {
+        const navTitles = ["專案概述", "負責內容", "專案成效", "專案重點與挑戰", "專案反思"];
+        const headings = modalBody.querySelectorAll("h3");
+        const navLinks = document.querySelectorAll(".modal-nav-link");
+        
+        if (headings.length === 0 || navLinks.length === 0) return;
+
+        const scrollPosition = modalBody.scrollTop;
+        const viewportOffset = 120; // 視窗頂部偏移量
+        let currentActive = null;
+
+        // 找到所有匹配的標題及其位置
+        const matchingHeadings = [];
+        headings.forEach((heading) => {
+          const headingText = heading.textContent.trim();
+          if (navTitles.includes(headingText)) {
+            const index = navTitles.indexOf(headingText);
+            // 使用 getBoundingClientRect 獲取相對於視窗的位置
+            const rect = heading.getBoundingClientRect();
+            const containerRect = modalBody.getBoundingClientRect();
+            // 計算相對於滾動容器的位置
+            const relativeTop = rect.top - containerRect.top + scrollPosition;
+            
+            matchingHeadings.push({
+              element: heading,
+              index: index,
+              top: relativeTop
+            });
+          }
+        });
+
+        // 從後往前檢查，找到第一個在視窗上方的標題
+        for (let i = matchingHeadings.length - 1; i >= 0; i--) {
+          const item = matchingHeadings[i];
+          if (item.top <= scrollPosition + viewportOffset) {
+            currentActive = item.index;
+            activeHeading = item.element;
+            break;
+          }
+        }
+
+        // 如果沒有找到，檢查是否在最後一個標題之後
+        if (currentActive === null && matchingHeadings.length > 0) {
+          const lastItem = matchingHeadings[matchingHeadings.length - 1];
+          if (scrollPosition + viewportOffset >= lastItem.top) {
+            currentActive = lastItem.index;
+          } else {
+            currentActive = 0; // 默認激活第一個
+          }
+        }
+
+        navLinks.forEach((link, index) => {
+          link.classList.toggle("active", index === currentActive);
+        });
+      }
+
+      function closeModal() {
+        projectModal.classList.remove("active");
+        document.body.style.overflow = "";
+      }
+
+      // 為所有卡片添加點擊事件
+      document.querySelectorAll(".card").forEach(card => {
+        card.style.cursor = "pointer";
+        card.addEventListener("click", (e) => {
+          // 如果點擊的是連結，不觸發彈窗
+          if (e.target.closest(".text-link")) {
+            return;
+          }
+          const projectId = card.getAttribute("data-project");
+          if (projectId) {
+            openModal(projectId);
+          }
+        });
+      });
+
+      // 關閉彈窗
+      if (modalClose) {
+        modalClose.addEventListener("click", closeModal);
+      }
+      if (modalOverlay) {
+        modalOverlay.addEventListener("click", closeModal);
+      }
+
+      // ESC 鍵關閉彈窗
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && projectModal.classList.contains("active")) {
+          closeModal();
+        }
+      });
+    </script>
+  </body>
+  </html>
+
+

@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>圖片集 - 我的作品集</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-content">
+        <div class="logo">Min-An's Portfolio</div>
+        <button class="menu-toggle" id="menuToggle" aria-label="選單">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="nav-overlay" id="navOverlay"></div>
+        <nav class="nav" id="mainNav">
+          <a href="index.html" class="nav-link" data-i18n="nav.home">首頁</a>
+          <a href="about.html" class="nav-link" data-i18n="nav.about">關於我</a>
+          <a href="works.html" class="nav-link" data-i18n="nav.works">作品集</a>
+          <a href="gallery.html" class="nav-link active" data-i18n="nav.gallery">圖片集</a>
+          <a href="contact.html" class="nav-link" data-i18n="nav.contact">留言互動</a>
+          <div class="lang-switch">
+            <button class="lang-btn active" data-lang="zh">中</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="page-header">
+        <h1 data-i18n="gallery.title">圖片集</h1>
+        <p data-i18n="gallery.subtitle">展示設計作品與視覺設計</p>
+      </section>
+
+      <div id="galleryContainer">
+        <!-- Gallery content will be generated here -->
+      </div>
+    </main>
+
+    <!-- Modal for gallery popup -->
+    <div class="project-modal" id="galleryModal">
+      <div class="modal-content-wrapper">
+        <div class="modal-content">
+          <button class="modal-close" id="modalClose">&times;</button>
+          <div class="modal-header">
+            <div class="modal-badge" id="modalBadge"></div>
+            <h2 class="modal-title" id="modalTitle"></h2>
+          </div>
+          <div class="modal-body" id="modalBody"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="lang.js"></script>
+    <script>
+      const galleryContainer = document.getElementById("galleryContainer");
+      const galleryModal = document.getElementById("galleryModal");
+      const modalClose = document.getElementById("modalClose");
+      const modalBadge = document.getElementById("modalBadge");
+      const modalTitle = document.getElementById("modalTitle");
+      const modalBody = document.getElementById("modalBody");
+
+      const galleryData = {
+        graphic: [
+          {
+            image: "img/gallery/minired/dm2.png",
+            caption: "品牌DM設計",
+            popupImages: [
+              "img/gallery/minired/dm2.png",
+              "img/gallery/minired/dm3.png",
+              "img/gallery/minired/dm4.png",
+              "img/gallery/minired/dm5.png",
+              "img/gallery/minired/namecard.png",
+              "img/gallery/minired/Portfolio9l.jpg",
+              "img/gallery/minired/Portfolio9ll.jpg",
+              "img/gallery/minired/post1.png",
+              "img/gallery/minired/poster2.png",
+              "img/gallery/minired/音樂講座.png"
+            ]
+          },
+          {
+            image: "img/gallery/friday/poster.png",
+            caption: "音樂會海報設計",
+            popupImages: [
+              "img/gallery/friday/Friday.png",
+              "img/gallery/friday/postcard1.png",
+              "img/gallery/friday/Back_Cover_Left.png",
+              "img/gallery/friday/感謝狀.png"
+            ]
+          },
+          {
+            image: "img/gallery/da/Artboard 9@2x.png",
+            caption: "活動海報設計",
+            popupImages: [
+              "img/gallery/da/Artboard 1@2x.png",
+              "img/gallery/da/Artboard 1 copy@2x.png",
+              "img/gallery/da/Artboard 1 copy 2@2x.png",
+              "img/gallery/da/Artboard 9 copy 2@2x.png"
+            ]
+          },
+          {
+            image: "img/gallery/poster/2-1.png",
+            caption: "活動海報合輯",
+            popupImages: [
+              "img/gallery/poster/2.1.png",
+              "img/gallery/poster/2-1.png",
+              "img/gallery/poster/2.3.png",
+              "img/gallery/poster/鳥林.png",
+              "img/gallery/poster/Artboard 12 copy 2@2x.png",
+              "img/gallery/poster/Artboard 12 copy 3@2x.png",
+              "img/gallery/poster/Artboard 12 copy@2x.png",
+              "img/gallery/poster/Artboard 1 copy.png",
+              "img/gallery/poster/Artboard 1 copy 2.png",
+              "img/gallery/poster/Artboard 1 copy 4.png",
+              "img/gallery/poster/poster4.png",
+              "img/gallery/poster/new-cl-b.png",
+              "img/gallery/poster/new-poster.png",
+              "img/gallery/poster/new-sax-b.png"
+            ]
+          }
+        ],
+        ui: [
+          {
+            image: "img/gallery/cover2.png",
+            caption: "官方網站形象設計",
+            popupContent: {
+              overview: "為響應公司政策，強化使用者體驗的重要性，新成立的 Experience Design Center 團隊需要一個對內形象官網，讓其他部門理解我們的定位、工作內容與合作模式。本專案為一頁式網頁設計，目標是以視覺風格和內容結構展現 UX 團隊的價值與特色。",
+              responsibilities: [
+                "從零開始規劃網站整體內容與架構",
+                "提出多套視覺風格設計提案",
+                "靜態網頁開發與實際上線"
+              ],
+              results: [
+                "增加 UX 團隊於公司內部的曝光度",
+                "與其他部門的合作機會增加約 30%",
+                "成功促進從未合作過的單位主動接觸 UX 團隊"
+              ],
+              challenges: [
+                {
+                  title: "一個網頁該呈現的內容怎麼去規劃？",
+                  content: "Content design(內容設計)是為了要讓網站服務，盡可能簡單清楚地表達、並容易理解。因此在開始設計前參考了許多設計團隊的形象網站，以及多數人們對團隊或UIUX的疑問，進而規劃需要呈現於網站的內容。"
+                },
+                {
+                  title: "從零開始的內容設計",
+                  content: "原始任務僅為「設計UX團隊官網」，沒有提供內容。為了讓從未接觸過 UX 的同仁也能理解，我先思考他們最關心的幾個問題：我們是誰？什麼是使用者體驗？我們的服務內容是什麼？如何與我們合作？實際成效為何？依據這些問題架構網站內容，讓資訊針對目標族群更有可讀性。"
+                },
+                {
+                  title: "響應式開發的轉變",
+                  content: "過往習慣以 px 為單位開發，但此專案需滿足不同裝置尺寸下的良好呈現，因此改以 vh/vw 為單位，確保第一屏關鍵視覺在任何裝置上都能被完整看到"
+                },
+                {
+                  title: "論微動畫的重要性",
+                  content: "單頁網站容易因內容過多而造成疲乏，加入滾動時的微動畫，有效吸引使用者注意，提升整體使用體驗。"
+                }
+              ],
+              finalResult: "以活潑的配色與大膽排版突顯團隊年輕、創新的形象，融合品牌三種代表色，打造專屬團隊風格。透過視覺吸引力提升點擊與互動率，進一步加強其他部門對 UX 的認識與重視。"
+            },
+            popupImages: [
+              "img/XDC/xdc1.png",
+              "img/XDC/xdc2.png",
+              "img/XDC/XDC.mp4"
+            ],
+            popupVideos: []
+          },
+          {
+            image: "img/gallery/coffee/section1.jpeg",
+            caption: "品牌網頁內容設計",
+            popupContent: {
+              overview: "為品牌打造完整的網頁內容設計，透過視覺層次與內容架構的規劃，呈現品牌核心價值與產品特色。本專案著重於內容的可讀性與視覺吸引力，確保使用者能夠快速理解品牌定位與服務內容。",
+              responsibilities: [
+                "規劃網站整體內容架構與資訊層次",
+                "設計視覺風格與版面配置",
+                "撰寫與優化網站文案內容"
+              ],
+              results: [
+                "提升品牌形象與專業度",
+                "增加使用者對品牌的信任感",
+                "確保內容的可讀性與理解度"
+              ],
+              challenges: [
+                {
+                  title: "如何平衡視覺設計與內容可讀性？",
+                  content: "在設計過程中，需要同時考慮視覺吸引力與內容的可讀性。透過適當的留白、字體大小與行距調整，以及視覺元素的層次安排，確保使用者能夠輕鬆閱讀並理解內容。"
+                },
+                {
+                  title: "內容架構的規劃",
+                  content: "從使用者的角度出發，思考他們最關心的問題與需求，進而規劃內容的呈現順序與重點。透過清晰的資訊架構，引導使用者逐步了解品牌價值與服務內容。"
+                }
+              ],
+              finalResult: ""
+            },
+            popupImages: [
+              "img/gallery/coffee/section0.jpeg",
+              "img/gallery/coffee/section1.jpeg",
+              "img/gallery/coffee/section2.jpeg",
+              "img/gallery/coffee/section3.jpeg",
+              "img/gallery/coffee/section4.jpeg",
+              "img/gallery/coffee/section5.jpeg",
+              "img/gallery/coffee/section7.jpeg"
+            ]
+          },
+          {
+            image: "img/gallery/program/programCover.png",
+            caption: "電子節目單設計",
+            popupVideos: [
+              "img/gallery/program/螢幕錄影 2023-06-03 上午2.34.12.mov",
+              "img/gallery/螢幕錄影 2025-12-24 下午3.40.17.mov"
+            ]
+          }
+        ]
+      };
+
+      // 判斷圖片布局的函數
+      function getImageLayoutClass(imgPath) {
+        const isNewClB = imgPath.includes("new-cl-b.png");
+        const isNewPoster = imgPath.includes("new-poster.png");
+        const isNewSaxB = imgPath.includes("new-sax-b.png");
+        const isArtboard1 = imgPath.includes("Artboard 1@2x.png") || 
+                           imgPath.includes("Artboard 1 copy@2x.png") || 
+                           imgPath.includes("Artboard 1 copy 2@2x.png");
+        const isArtboard12 = imgPath.includes("Artboard 12 copy 2@2x.png") || 
+                            imgPath.includes("Artboard 12 copy 3@2x.png") || 
+                            imgPath.includes("Artboard 12 copy@2x.png");
+        const isPoster23 = imgPath.includes("2.1.png") || 
+                          imgPath.includes("2-1.png") || 
+                          imgPath.includes("2.3.png");
+        const isArtboard1Copy = imgPath.includes("Artboard 1 copy.png") || 
+                               imgPath.includes("Artboard 1 copy 2.png");
+        const isDm5 = imgPath.includes("dm5.png");
+        const isPoster4 = imgPath.includes("poster4.png");
+        const isFriday = imgPath.includes("Friday.png");
+        const isPostcard1 = imgPath.includes("postcard1.png");
+        const isBackCover = imgPath.includes("Back_Cover_Left.png");
+        const isThankYou = imgPath.includes("感謝狀.png");
+        const isBird = imgPath.includes("鳥林.png");
+
+        if (isNewClB || isNewPoster || isNewSaxB) {
+          return "third-width";
+        } else if (isArtboard1 || isArtboard12 || isPoster23) {
+          return "artboard-1-series";
+        } else if (isArtboard1Copy) {
+          return "half-width";
+        } else if (isDm5 || isPoster4 || isFriday || isPostcard1 || isBird) {
+          return "full-width";
+        } else if (isBackCover || isThankYou) {
+          return "half-width";
+        }
+        return "full-width";
+      }
+
+      // 生成圖片 HTML
+      function generateImagesHTML(images, caption) {
+        if (!images || images.length === 0) return "";
+
+        let html = '<div class="gallery-popup-container">';
+        let currentGroup = null;
+        let groupImages = [];
+
+        images.forEach((img, index) => {
+          const layoutClass = getImageLayoutClass(img);
+          const isArtboard1Series = layoutClass === "artboard-1-series";
+          const isThirdWidth = layoutClass === "third-width";
+          const isHalfWidth = layoutClass === "half-width";
+
+          // 處理 Artboard 1 系列（三張一排）
+          if (isArtboard1Series) {
+            if (currentGroup !== "artboard-1-group") {
+              if (currentGroup !== null) {
+                html += '</div>';
+              }
+              html += '<div class="gallery-popup-container artboard-1-group">';
+              currentGroup = "artboard-1-group";
+            }
+            html += `
+              <div class="gallery-popup-image artboard-1-series">
+                <img src="${img}" alt="${caption}" />
+              </div>
+            `;
+            if (index === images.length - 1 || getImageLayoutClass(images[index + 1]) !== "artboard-1-series") {
+              html += '</div>';
+              currentGroup = null;
+            }
+          }
+          // 處理三張一排（new-cl-b, new-poster, new-sax-b）
+          else if (isThirdWidth) {
+            groupImages.push({ img, layoutClass, caption });
+            if (groupImages.length === 3 || index === images.length - 1 || getImageLayoutClass(images[index + 1]) !== "third-width") {
+              html += '<div class="gallery-popup-container">';
+              groupImages.forEach(item => {
+                html += `
+                  <div class="gallery-popup-image third-width">
+                    <img src="${item.img}" alt="${item.caption}" />
+                  </div>
+                `;
+              });
+              html += '</div>';
+              groupImages = [];
+            }
+          }
+          // 處理兩張一排（Back_Cover_Left 和 感謝狀）
+          else if (isHalfWidth && (img.includes("Back_Cover_Left.png") || img.includes("感謝狀.png"))) {
+            groupImages.push({ img, layoutClass, caption });
+            const nextImg = images[index + 1];
+            if (nextImg && (nextImg.includes("Back_Cover_Left.png") || nextImg.includes("感謝狀.png"))) {
+              // 等待下一張
+            } else {
+              html += '<div class="gallery-popup-container">';
+              groupImages.forEach(item => {
+                html += `
+                  <div class="gallery-popup-image half-width">
+                    <img src="${item.img}" alt="${item.caption}" />
+                  </div>
+                `;
+              });
+              html += '</div>';
+              groupImages = [];
+            }
+          }
+          // 處理其他兩張一排
+          else if (isHalfWidth) {
+            groupImages.push({ img, layoutClass, caption });
+            if (groupImages.length === 2 || index === images.length - 1 || getImageLayoutClass(images[index + 1]) !== "half-width") {
+              html += '<div class="gallery-popup-container">';
+              groupImages.forEach(item => {
+                html += `
+                  <div class="gallery-popup-image half-width">
+                    <img src="${item.img}" alt="${item.caption}" />
+                  </div>
+                `;
+              });
+              html += '</div>';
+              groupImages = [];
+            }
+          }
+          // 處理單張全寬
+          else {
+            if (currentGroup !== null && currentGroup !== "artboard-1-group") {
+              html += '</div>';
+              currentGroup = null;
+            }
+            html += '<div class="gallery-popup-container">';
+            html += `
+              <div class="gallery-popup-image full-width">
+                <img src="${img}" alt="${caption}" />
+              </div>
+            `;
+            html += '</div>';
+          }
+        });
+
+        if (currentGroup !== null) {
+          html += '</div>';
+        }
+        if (groupImages.length > 0) {
+          html += '<div class="gallery-popup-container">';
+          groupImages.forEach(item => {
+            html += `
+              <div class="gallery-popup-image ${item.layoutClass}">
+                <img src="${item.img}" alt="${item.caption}" />
+              </div>
+            `;
+          });
+          html += '</div>';
+        }
+
+        return html;
+      }
+
+      // 設置同一列圖片的高度
+      function setRowHeights() {
+        const containers = document.querySelectorAll('.gallery-popup-container');
+        containers.forEach(container => {
+          const images = container.querySelectorAll('.gallery-popup-image');
+          if (images.length > 1) {
+            let maxHeight = 0;
+            images.forEach(img => {
+              const imgElement = img.querySelector('img');
+              if (imgElement) {
+                imgElement.onload = () => {
+                  images.forEach(i => {
+                    const imgEl = i.querySelector('img');
+                    if (imgEl) {
+                      const naturalHeight = imgEl.naturalHeight;
+                      const naturalWidth = imgEl.naturalWidth;
+                      const aspectRatio = naturalWidth / naturalHeight;
+                      const containerWidth = i.offsetWidth;
+                      const calculatedHeight = containerWidth / aspectRatio;
+                      if (calculatedHeight > maxHeight) {
+                        maxHeight = calculatedHeight;
+                      }
+                    }
+                  });
+                  images.forEach(i => {
+                    i.style.height = maxHeight + 'px';
+                    const imgEl = i.querySelector('img');
+                    if (imgEl) {
+                      imgEl.style.height = maxHeight + 'px';
+                    }
+                  });
+                };
+              }
+            });
+          }
+        });
+      }
+
+      function openUIModal(itemIndex) {
+        const item = galleryData.ui[itemIndex];
+        if (!item || (!item.popupImages && !item.popupVideo && !item.popupVideos && !item.popupContent)) return;
+
+        modalBadge.innerHTML = '<span class="badge-tag">UI 作品</span>';
+        modalTitle.textContent = item.caption;
+        
+        let contentHTML = '<div class="gallery-popup-container">';
+        
+        if (item.popupContent) {
+          const content = item.popupContent;
+          
+          // 顯示第一張圖片（section0）在專案概述之前（僅限品牌網頁內容設計）
+          if (item.popupImages && item.popupImages.length > 0 && item.caption === "品牌網頁內容設計") {
+            contentHTML += `
+              <div class="gallery-popup-image full-width ui-full-width">
+                <img src="${item.popupImages[0]}" alt="${item.caption}" />
+              </div>
+            `;
+            contentHTML += '</div>';
+            contentHTML += '<div class="gallery-popup-container">';
+          }
+          
+          contentHTML += '<div class="ui-popup-content">';
+          
+          // 只在第一個 UI 作品（官方網站形象設計）顯示封面圖片
+          if (itemIndex === 0 && item.caption === "官方網站形象設計") {
+            contentHTML += `
+              <div class="gallery-popup-image full-width ui-full-width" style="margin-bottom: 2rem;">
+                <img src="img/gallery/cover2.png" alt="${item.caption}" />
+              </div>
+            `;
+          }
+          
+          // 專案概述
+          if (content.overview) {
+            contentHTML += `
+              <div class="content-section">
+                <h3 class="content-title">專案概述</h3>
+                <p class="content-text">${content.overview}</p>
+              </div>
+            `;
+          }
+          
+          // 負責內容
+          if (content.responsibilities && content.responsibilities.length > 0) {
+            contentHTML += `
+              <div class="content-section">
+                <h3 class="content-title">負責內容</h3>
+                <ol class="content-list">
+                  ${content.responsibilities.map(resp => `<li>${resp}</li>`).join('')}
+                </ol>
+              </div>
+            `;
+          }
+          
+          // 專案成效
+          if (content.results && content.results.length > 0) {
+            contentHTML += `
+              <div class="project-result-highlight">
+                <h3 class="content-title">專案成效</h3>
+                <ul class="content-list">
+                  ${content.results.map(result => `<li>${result}</li>`).join('')}
+                </ul>
+              </div>
+            `;
+          }
+          
+          // 專案重點與挑戰
+          if (content.challenges && content.challenges.length > 0) {
+            contentHTML += `
+              <div class="content-section">
+                <h3 class="content-title">專案重點與挑戰</h3>
+            `;
+            
+            content.challenges.forEach((challenge, index) => {
+              contentHTML += `
+                <div class="challenge-item">
+                  <h4 class="challenge-title">- ${challenge.title}</h4>
+                  <p class="challenge-content">${challenge.content}</p>
+                </div>
+              `;
+              
+              // 在第二個挑戰項目後面插入前兩張圖片（僅限官方網站形象設計）
+              if (index === 1 && item.popupImages && item.popupImages.length >= 2 && item.caption === "官方網站形象設計") {
+                contentHTML += '</div>';
+                contentHTML += '</div>';
+                contentHTML += '</div>';
+                
+                contentHTML += '<div class="gallery-popup-container">';
+                for (let i = 0; i < 2 && i < item.popupImages.length; i++) {
+                  contentHTML += `
+                    <div class="gallery-popup-image full-width ui-full-width">
+                      <img src="${item.popupImages[i]}" alt="${item.caption}" />
+                    </div>
+                  `;
+                  if (i === 1) {
+                    contentHTML += `
+                      <div class="ui-popup-content" style="text-align: center; margin-top: 0.5rem; margin-bottom: 1rem;">
+                        <p style="color: #8b5a36; font-size: 0.9rem; font-style: italic;">專案設計提案</p>
+                      </div>
+                    `;
+                  }
+                }
+                contentHTML += '</div>';
+                
+                contentHTML += '<div class="gallery-popup-container">';
+                contentHTML += '<div class="ui-popup-content">';
+                contentHTML += '<div class="content-section">';
+                contentHTML += '<h3 class="content-title">專案重點與挑戰</h3>';
+                
+                for (let j = 2; j < content.challenges.length; j++) {
+                  const remainingChallenge = content.challenges[j];
+                  contentHTML += `
+                    <div class="challenge-item">
+                      <h4 class="challenge-title">- ${remainingChallenge.title}</h4>
+                      <p class="challenge-content">${remainingChallenge.content}</p>
+                    </div>
+                  `;
+                }
+              }
+            });
+            
+            contentHTML += '</div>';
+          }
+          
+          // 最終設計成果
+          if (content.finalResult) {
+            contentHTML += `
+              <div class="content-section">
+                <h3 class="content-title">最終設計成果</h3>
+                <p class="content-text">${content.finalResult}</p>
+              </div>
+            `;
+          }
+          
+          contentHTML += '</div>';
+          contentHTML += '</div>';
+          
+          // 在最終設計成果後面顯示剩餘的圖片（從第二張開始，僅限品牌網頁內容設計）
+          if (item.popupImages && item.popupImages.length > 1 && item.caption === "品牌網頁內容設計") {
+            contentHTML += '<div class="gallery-popup-container">';
+            for (let i = 1; i < item.popupImages.length; i++) {
+              contentHTML += `
+                <div class="gallery-popup-image full-width ui-full-width">
+                  <img src="${item.popupImages[i]}" alt="${item.caption}" />
+                </div>
+              `;
+            }
+            contentHTML += '</div>';
+          }
+          
+          // 在最終設計成果後面顯示影片
+          if (item.popupVideos && item.popupVideos.length > 0) {
+            item.popupVideos.forEach((videoSrc) => {
+              contentHTML += '<div class="gallery-popup-container">';
+              contentHTML += `
+                <div class="gallery-popup-image full-width ui-full-width">
+                  <video controls autoplay muted loop style="width: 100%; height: auto; border-radius: 0.4rem;">
+                    <source src="${videoSrc}" type="video/mp4">
+                    <source src="${videoSrc}" type="video/quicktime">
+                    您的瀏覽器不支援影片播放。
+                  </video>
+                </div>
+              `;
+              contentHTML += '</div>';
+            });
+          } else if (item.popupVideo) {
+            contentHTML += '<div class="gallery-popup-container">';
+            contentHTML += `
+              <div class="gallery-popup-image full-width ui-full-width">
+                <video controls autoplay muted loop style="width: 100%; height: auto; border-radius: 0.4rem;">
+                  <source src="${item.popupVideo}" type="video/mp4">
+                  <source src="${item.popupVideo}" type="video/quicktime">
+                  您的瀏覽器不支援影片播放。
+                </video>
+              </div>
+            `;
+            contentHTML += '</div>';
+          }
+        } else {
+          // 如果沒有文字內容，顯示圖片和影片
+          if (item.popupImages && item.popupImages.length > 0) {
+            item.popupImages.forEach((img) => {
+              contentHTML += `
+                <div class="gallery-popup-image full-width ui-full-width">
+                  <img src="${img}" alt="${item.caption}" />
+                </div>
+              `;
+            });
+          }
+          
+          if (item.popupVideos && item.popupVideos.length > 0) {
+            item.popupVideos.forEach((videoSrc) => {
+              contentHTML += `
+                <div class="gallery-popup-image full-width ui-full-width">
+                <video controls autoplay muted loop style="width: 100%; height: auto; border-radius: 0.4rem;">
+                  <source src="${videoSrc}" type="video/mp4">
+                  <source src="${videoSrc}" type="video/quicktime">
+                  您的瀏覽器不支援影片播放。
+                </video>
+                </div>
+              `;
+            });
+          } else if (item.popupVideo) {
+            contentHTML += `
+              <div class="gallery-popup-image full-width ui-full-width">
+              <video controls autoplay muted loop style="width: 100%; height: auto; border-radius: 0.4rem;">
+                <source src="${item.popupVideo}" type="video/mp4">
+                <source src="${item.popupVideo}" type="video/quicktime">
+                您的瀏覽器不支援影片播放。
+              </video>
+              </div>
+            `;
+          }
+          
+          contentHTML += '</div>';
+        }
+        
+        modalBody.innerHTML = contentHTML;
+        galleryModal.classList.add("active");
+        
+        // 設置圖片高度
+        setTimeout(setRowHeights, 100);
+      }
+
+      function openGalleryModal(itemIndex) {
+        const item = galleryData.graphic[itemIndex];
+        if (!item || !item.popupImages) return;
+
+        modalBadge.innerHTML = '<span class="badge-tag">平面設計</span>';
+        modalTitle.textContent = item.caption;
+        
+        const imagesHTML = generateImagesHTML(item.popupImages, item.caption);
+        modalBody.innerHTML = imagesHTML;
+        galleryModal.classList.add("active");
+        
+        // 設置圖片高度
+        setTimeout(setRowHeights, 100);
+      }
+
+      function closeGalleryModal() {
+        galleryModal.classList.remove("active");
+        modalBody.innerHTML = "";
+        const videos = modalBody.querySelectorAll("video");
+        videos.forEach(video => {
+          video.pause();
+          video.currentTime = 0;
+        });
+      }
+
+      function closeUIModal() {
+        galleryModal.classList.remove("active");
+        modalBody.innerHTML = "";
+        const videos = modalBody.querySelectorAll("video");
+        videos.forEach(video => {
+          video.pause();
+          video.currentTime = 0;
+        });
+      }
+
+      // 生成 Gallery HTML
+      function renderGallery() {
+        let html = "";
+
+        // UI 作品
+        html += '<div class="gallery-section">';
+        html += '<h2 class="gallery-section-title">UI 作品</h2>';
+        html += '<div class="gallery-grid">';
+        galleryData.ui.forEach((item, index) => {
+          html += `
+            <div class="gallery-item" onclick="openUIModal(${index})">
+              <div class="gallery-item-image">
+                <img src="${item.image}" alt="${item.caption}" />
+              </div>
+              <div class="gallery-item-caption">${item.caption}</div>
+            </div>
+          `;
+        });
+        html += '</div>';
+        html += '</div>';
+
+        // 平面設計
+        html += '<div class="gallery-section">';
+        html += '<h2 class="gallery-section-title">平面設計</h2>';
+        html += '<div class="gallery-grid">';
+        galleryData.graphic.forEach((item, index) => {
+          html += `
+            <div class="gallery-item" onclick="openGalleryModal(${index})">
+              <div class="gallery-item-image">
+                <img src="${item.image}" alt="${item.caption}" />
+              </div>
+              <div class="gallery-item-caption">${item.caption}</div>
+            </div>
+          `;
+        });
+        html += '</div>';
+        html += '</div>';
+
+        galleryContainer.innerHTML = html;
+      }
+
+      // 事件監聽
+      modalClose.addEventListener("click", () => {
+        closeGalleryModal();
+        closeUIModal();
+      });
+
+      galleryModal.addEventListener("click", (e) => {
+        if (e.target === galleryModal || e.target.classList.contains("modal-content-wrapper")) {
+          closeGalleryModal();
+          closeUIModal();
+        }
+      });
+
+      // 初始化
+      renderGallery();
+    </script>
+  </body>
+  </html>
