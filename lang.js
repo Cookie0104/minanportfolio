@@ -32,12 +32,36 @@ const translations = {
     "about.skill.backend": "使用者研究",
     "about.skill.tools": "前端技術",
     "about.timeline.title": "工作經歷",
-    "about.timeline.a.title": "公司名稱 A - 職稱",
+    "about.timeline.a.title": "玉山商業銀行 E.SUN COMMERCIAL BANK - Senior UI/UX Designer",
+    "about.timeline.a.period": "10/2019 - 04/2025",
     "about.timeline.a.desc":
-      "用幾個重點描述你的工作內容，例如負責哪些產品模組、使用哪些技術、完成哪些有代表性的專案。",
-    "about.timeline.b.title": "公司名稱 B - 職稱",
+      "透過 NPS、Kano 分析與 Google Analytics 資料洞察使用者需求，開發跨國產品 - UCB Mobile Banking App，與柬埔寨主管機關、開發團隊、專案經理及其他設計師協作，優化使用者體驗，提升轉換率與使用滿意度。",
+    "about.timeline.a.desc2":
+      "依據 WCAG 無障礙設計標準，迭代並優化內部系統，提升長者及視覺障礙使用者的可用性；同時建立可共用並擴充的 Figma Library，將公司設計系統標準化，實踐 DesignOps 精神，提升跨部門合作效率並確保跨專案一致性。",
+    "about.timeline.a.desc3":
+      "重新設計招募網站並梳理招募流程，包含應徵者使用的 SaaS 平台（B2C）以及 HR 內部招募後台系統（B2B），優化職缺申請流程與新人入職體驗，並透過易用性測試照出 8 項鍵優化建議。",
+    "about.timeline.a.desc4":
+      "舉辦 5 場內部 UI/UX 講座與工作坊（ Design Thinking、使用者旅程、Card Sorting等等），增加公司對於設計的重要性，促進跨部門合作成長 30%，展現有效傳達複雜設計概念與推動協作成果的能力。",
+    "about.timeline.a.desc5":
+      "為團隊設計官方網站，推廣並介紹團隊工作內容及設計的價值，且協助前端網頁開發切版上線。",
+    "about.timeline.a.projects.title": "主要代表專案：",
+    "about.timeline.a.projects":
+      "海外子行行動銀行、智能系統櫃、新分行系統、行內匯款系統、新甄選系統、團隊官方網站、UX 課程規劃與教學、入職旅程體驗精進、中小企業App",
+    "about.timeline.b.title": "Freelancer - Graphic Designer / UI/UX Designer",
+    "about.timeline.b.period": "2017 - Now",
     "about.timeline.b.desc":
-      "可以再補上另一份工作或實習的內容，讓訪客了解你的累積經驗。",
+      "05/2025-10/2025 - 參與跨國新創公司 TicketRecipe 二手票券交易平台 Web 之 UIUX 設計。",
+    "about.timeline.b.desc2":
+      "10/2023-01/2025 - 田寮生技數位科技股份有限公司及其子品牌之社群媒體營運規劃及設計，將複雜的生技資訊轉化為易懂的視覺內容，獨立完成產品推廣、品牌形象、節慶活動等各類平面設計稿件。",
+    "about.timeline.b.desc3":
+      "09/2018-03/2020 - 與 5% Design Action 社會設計平台專案合作，設計一項含線上線下的服務系統，梳理服務流程、服務藍圖、規劃APP與網站架構設計。",
+    "about.timeline.b.desc4":
+      "08/2017-06/2020 - 小紅樓音樂藝術工作室各項活動海報、招生文宣設計，及社群媒體營運。",
+    "about.timeline.c.title": "其他",
+    "about.timeline.c.desc": "2019 德國 iF 新秀獎 best of the year (UI/UX)",
+    "about.timeline.c.desc2": "2019 荷蘭 Indigo Design Award 銀獎 (UI/UX)",
+    "about.timeline.c.desc3": "2021 第三屆 The F2E 前端 & UI 修煉精神時光屋 團體組佳作",
+    "about.timeline.c.desc4": "2022 第四屆 The F2E 前端 & UI 修煉精神時光屋 團體組第一名",
 
     "works.title": "專案介紹",
     "works.subtitle": "Hello，這邊放了我的代表性的專案或作品，歡迎逛逛，並且分享您的想法唷。",
@@ -112,12 +136,36 @@ const translations = {
     "about.skill.backend": "Back-end / Services",
     "about.skill.tools": "Tools & Workflow",
     "about.timeline.title": "Experience",
-    "about.timeline.a.title": "Company A - Position",
+    "about.timeline.a.title": "E.SUN COMMERCIAL BANK - Senior UI/UX Designer",
+    "about.timeline.a.period": "10/2019 - 04/2025",
     "about.timeline.a.desc":
-      "Use a few bullet points to describe what you worked on, which modules you owned and which technologies you used.",
-    "about.timeline.b.title": "Company B - Position",
+      "Analyzed user needs through NPS, Kano analysis, and Google Analytics data to develop cross-border product - UCB Mobile Banking App. Collaborated with Cambodian regulatory authorities, development teams, project managers, and other designers to optimize user experience, improve conversion rates and user satisfaction.",
+    "about.timeline.a.desc2":
+      "Iterated and optimized internal systems according to WCAG accessibility design standards, improving usability for elderly and visually impaired users. Established a shareable and expandable Figma Library, standardizing the company's design system, practicing DesignOps principles, enhancing cross-departmental collaboration efficiency and ensuring cross-project consistency.",
+    "about.timeline.a.desc3":
+      "Redesigned recruitment website and streamlined recruitment processes, including SaaS platform for applicants (B2C) and HR internal recruitment backend system (B2B), optimized job application process and new employee onboarding experience, and identified 8 key optimization recommendations through usability testing.",
+    "about.timeline.a.desc4":
+      "Conducted 5 internal UI/UX lectures and workshops (Design Thinking, User Journey, Card Sorting, etc.), increasing company awareness of design importance, promoting cross-departmental collaboration growth by 30%, demonstrating ability to effectively communicate complex design concepts and drive collaborative results.",
+    "about.timeline.a.desc5":
+      "Designed official website for the team, promoting and introducing team work content and design value, and assisted in front-end web development and deployment.",
+    "about.timeline.a.projects.title": "Key Representative Projects:",
+    "about.timeline.a.projects":
+      "Overseas Subsidiary Mobile Banking, Intelligent System Counter, New Branch System, Internal Remittance System, New Recruitment System, Team Official Website, UX Course Planning and Teaching, Onboarding Journey Experience Enhancement, SME App",
+    "about.timeline.b.title": "Freelancer - Graphic Designer / UI/UX Designer",
+    "about.timeline.b.period": "2017 - Now",
     "about.timeline.b.desc":
-      "Add another job or internship here so visitors can see how your experience has grown.",
+      "05/2025-10/2025 - Participated in UI/UX design for TicketRecipe, a cross-border startup's second-hand ticket trading platform Web.",
+    "about.timeline.b.desc2":
+      "10/2023-01/2025 - Social media operation planning and design for Tianliao Biotechnology Digital Technology Co., Ltd. and its sub-brands, transforming complex biotech information into understandable visual content, independently completing various graphic design works for product promotion, brand image, and holiday campaigns.",
+    "about.timeline.b.desc3":
+      "09/2018-03/2020 - Collaborated with 5% Design Action social design platform project, designed an online and offline service system, organized service processes, service blueprints, and planned APP and website architecture design.",
+    "about.timeline.b.desc4":
+      "08/2017-06/2020 - Various event posters, recruitment materials design, and social media operation for Xiaohonglou Music Art Studio.",
+    "about.timeline.c.title": "Others",
+    "about.timeline.c.desc": "2019 Germany iF Design Talent Award best of the year (UI/UX)",
+    "about.timeline.c.desc2": "2019 Netherlands Indigo Design Award Silver (UI/UX)",
+    "about.timeline.c.desc3": "2021 3rd The F2E Frontend & UI Training Time Chamber Team Category Merit",
+    "about.timeline.c.desc4": "2022 4th The F2E Frontend & UI Training Time Chamber Team Category 1st Place",
 
     "works.title": "Projects",
     "works.subtitle": "Some selected projects I’ve worked on.",
