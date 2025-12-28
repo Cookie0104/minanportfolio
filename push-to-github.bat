@@ -26,3 +26,4 @@ echo 2. 是否已登入 GitHub（使用 git config --global user.name 和 git co
 echo 3. 是否已設置 GitHub 認證（Personal Access Token 或 SSH key）
 pause
 
+

@@ -11,7 +11,7 @@ const translations = {
 
     "home.hero.title": "你好，我是",
     "home.hero.subtitle": "Senior UI/UX Designer | Product Designer",
-    "home.hero.subtitle2": "擁有 5+ 年專案實戰經驗。致力於透過系統化設計思維（Design System）和深入的使用者研究（UX Research），將優異的使用者體驗（UX）轉化為產品的實質業務增長，並持續優化用戶留存與轉換率。",
+    "home.hero.subtitle2": "擁有<b> 5+ 年專案實戰經驗</b>。致力於透過 <b>Design System 系統化設計思維</b>和深入的<b> UX Research 使用者研究</b>，將優異的使用者體驗轉化為<b>產品的實質業務增長</b>，並持續<b>優化用戶留存與轉換率</b>。",
     "home.hero.desc":
       "這裡整理了我的工作經歷、代表作品與聯絡方式，歡迎逛逛，也可以在留言頁和我互動。",
     "home.hero.viewWorks": "查看作品",
@@ -19,44 +19,46 @@ const translations = {
     "home.hero.role": "職稱 / 角色",
     "home.hero.company": "目前任職於 XXX 公司，負責 YYY 相關開發。",
 
-    "about.title": "關於我",
-    "about.subtitle": "Senior UI/UX Designer | 5+年經驗",
-    "about.subtitle2": "專注使用者旅程優化 | Design System｜精通 Prototyping, Mobile & Web | 跨平台設計與驗證",
+    "about.title": "關於我 - Min An",
+    "about.subtitle": "Senior UI/UX Designer <span class=\"skill-separator\">|</span> 5+年經驗",
+    "about.subtitle2": "專注使用者旅程優化 <span class=\"skill-separator\">|</span> Design System <span class=\"skill-separator\">|</span> 精通 Prototyping, Mobile & Web <span class=\"skill-separator\">|</span> 跨平台設計與驗證",
     "about.section.profile": "個人簡介",
     "about.profile.p1":
-      "我是一名擁有 5 年以上業界經驗的 UI/UX 設計師。曾服務於金融業領域，並有自行接案的經驗。主要負責協助公司製作各項使用者體驗設計，含前期使用者研究到後期切版，是一位橫向發展能力的設計師。",
+      "擁有<b> 5 年以上資深 UI/UX 設計經驗</b>，深耕於<b>高邏輯金融領域與跨國產品開發</b>。具備<b>前端框架技術能力</b>，擅長實踐 <b>DesignOps 精神</b>，透過<b>建立標準化 Design System 提升跨部門協作效率</b>。",
     "about.profile.p2":
-      "由於學習過前端框架技術，現在的我是個擁有設計與工程能力並存的設計師，除了對美感有要求外也專注於創造流暢的前端使用體驗，讓團隊溝通更有效率，致力於讓產品帶給使用者更多的回饋與價值。在長期的數位產品設計經驗中，不僅提升了設計技能，更養成了以數據與使用者需求為核心的設計思維。",
+      "核心優勢在於<b>全鏈路 UX 研究與 UI 設計執行</b>：擅長運用 <b>NPS、Kano 模型及 GA 數據洞察定義需求</b>，並能操作服務藍圖<b>梳理線上線下複雜體驗</b>。<b>曾主導 WCAG 無障礙系統優化及 B2B/B2C SaaS 平台重構</b>，並<b>透過易用性測試產出關鍵優化決策</b>。",
+    "about.profile.p3":
+      "我不僅是一位設計師，更是產品價值的推動者。曾舉辦多場 <b>Design Thinking 工作坊</b>，成功<b>促進跨部門合作效率成長 30%</b>。致力於<b>以數據為核心</b>，確保每一項設計決策都能為使用者解決痛點，並為企業創造實質的商業價值與轉換率提升。",
     "about.section.skills": "技能",
     "about.skill.frontend": "UI/UX Design",
     "about.skill.backend": "使用者研究",
     "about.skill.tools": "前端技術",
     "about.timeline.title": "工作經歷",
-    "about.timeline.a.title": "玉山商業銀行 E.SUN COMMERCIAL BANK - Senior UI/UX Designer",
+    "about.timeline.a.title": "<span class=\"timeline-title-main\">玉山商業銀行 E.SUN COMMERCIAL BANK</span> <span class=\"skill-separator\">|</span> <span class=\"timeline-title-sub\">Senior UI/UX Designer</span>",
     "about.timeline.a.period": "10/2019 - 04/2025",
     "about.timeline.a.desc":
-      "透過 NPS、Kano 分析與 Google Analytics 資料洞察使用者需求，開發跨國產品 - UCB Mobile Banking App，與柬埔寨主管機關、開發團隊、專案經理及其他設計師協作，優化使用者體驗，提升轉換率與使用滿意度。",
+      "<b>透過 NPS、Kano 分析與 Google Analytics 資料洞察使用者需求</b>，開發跨國產品 - UCB Mobile Banking App，與柬埔寨主管機關、開發團隊、專案經理及其他設計師協作，優化使用者體驗，<b>提升轉換率與使用滿意度</b>。",
     "about.timeline.a.desc2":
-      "依據 WCAG 無障礙設計標準，迭代並優化內部系統，提升長者及視覺障礙使用者的可用性；同時建立可共用並擴充的 Figma Library，將公司設計系統標準化，實踐 DesignOps 精神，提升跨部門合作效率並確保跨專案一致性。",
+      "<b>依據 WCAG 無障礙設計標準</b>，迭代並優化內部系統，提升長者及視覺障礙使用者的可用性；同時<b>建立可共用並擴充的 Figma Library</b>，將公司設計系統標準化，<b>實踐 DesignOps 精神</b>，提升跨部門合作效率並確保跨專案一致性。",
     "about.timeline.a.desc3":
-      "重新設計招募網站並梳理招募流程，包含應徵者使用的 SaaS 平台（B2C）以及 HR 內部招募後台系統（B2B），優化職缺申請流程與新人入職體驗，並透過易用性測試照出 8 項鍵優化建議。",
+      "<b>重新設計招募網站並梳理招募流程</b>，包含應徵者使用的 SaaS 平台（B2C）以及 HR 內部招募後台系統（B2B），優化職缺申請流程與新人入職體驗，並<b>透過易用性測試照出 8+ 項鍵優化建議</b>。",
     "about.timeline.a.desc4":
-      "舉辦 5 場內部 UI/UX 講座與工作坊（ Design Thinking、使用者旅程、Card Sorting等等），增加公司對於設計的重要性，促進跨部門合作成長 30%，展現有效傳達複雜設計概念與推動協作成果的能力。",
+      "<b>舉辦 5 場內部 UI/UX 講座與工作坊</b>（ Design Thinking、使用者旅程、Card Sorting等等），增加公司對於設計的重要性，<b>促進跨部門合作成長 30%</b>，展現有效傳達複雜設計概念與推動協作成果的能力。",
     "about.timeline.a.desc5":
-      "為團隊設計官方網站，推廣並介紹團隊工作內容及設計的價值，且協助前端網頁開發切版上線。",
+      "為團隊<b>設計官方網站</b>，推廣並介紹團隊工作內容及設計的價值，並<b>製作前端網頁開發切版上線</b>。",
     "about.timeline.a.projects.title": "主要代表專案：",
     "about.timeline.a.projects":
-      "海外子行行動銀行、智能系統櫃、新分行系統、行內匯款系統、新甄選系統、團隊官方網站、UX 課程規劃與教學、入職旅程體驗精進、中小企業App",
-    "about.timeline.b.title": "Freelancer - Graphic Designer / UI/UX Designer",
+      "海外子行行動銀行 <span class=\"skill-separator\">|</span> 智能系統櫃 <span class=\"skill-separator\">|</span> 新分行系統 <span class=\"skill-separator\">|</span> 行內匯款系統 <span class=\"skill-separator\">|</span> 新甄選系統 <span class=\"skill-separator\">|</span> 團隊官方網站 <span class=\"skill-separator\">|</span> UX 課程規劃與教學 <span class=\"skill-separator\">|</span> 入職旅程體驗精進 <span class=\"skill-separator\">|</span> 中小企業App",
+    "about.timeline.b.title": "<span class=\"timeline-title-main\">Freelancer</span> <span class=\"skill-separator\">|</span> <span class=\"timeline-title-sub\">Graphic Designer / UI/UX Designer</span>",
     "about.timeline.b.period": "2017 - Now",
     "about.timeline.b.desc":
-      "05/2025-10/2025 - 參與跨國新創公司 TicketRecipe 二手票券交易平台 Web 之 UIUX 設計。",
+      "參與<b>跨國新創公司</b> TicketRecipe 二手票券交易平台 <b>Web 之 UI/UX 設計</b>。",
     "about.timeline.b.desc2":
-      "10/2023-01/2025 - 田寮生技數位科技股份有限公司及其子品牌之社群媒體營運規劃及設計，將複雜的生技資訊轉化為易懂的視覺內容，獨立完成產品推廣、品牌形象、節慶活動等各類平面設計稿件。",
+      "田寮生技數位科技股份有限公司及其子品牌之社群媒體營運規劃及設計，<b>將複雜的生技資訊轉化為易懂的視覺內容</b>，獨立完成產品推廣、品牌形象、節慶活動等各類平面設計稿件。",
     "about.timeline.b.desc3":
-      "09/2018-03/2020 - 與 5% Design Action 社會設計平台專案合作，設計一項含線上線下的服務系統，梳理服務流程、服務藍圖、規劃APP與網站架構設計。",
+      "與 5% Design Action 社會設計平台專案合作，設計一項<b>含線上線下的服務系統，梳理服務流程、服務藍圖、規劃 APP 與網站架構設計</b>。",
     "about.timeline.b.desc4":
-      "08/2017-06/2020 - 小紅樓音樂藝術工作室各項活動海報、招生文宣設計，及社群媒體營運。",
+      "小紅樓音樂藝術工作室各項活動海報、招生文宣設計，及社群媒體營運。",
     "about.timeline.c.title": "其他",
     "about.timeline.c.desc": "2019 德國 iF 新秀獎 best of the year (UI/UX)",
     "about.timeline.c.desc2": "2019 荷蘭 Indigo Design Award 銀獎 (UI/UX)",
@@ -123,7 +125,7 @@ const translations = {
     "home.hero.company":
       "Currently working at XXX, building YYY related products.",
 
-    "about.title": "About Me",
+    "about.title": "About Me - Min An",
     "about.subtitle": "Senior UI/UX Designer | 5+ years experience",
     "about.subtitle2": "Focus on user journey optimization | Design System | Proficient in Prototyping, Mobile & Web | Cross-platform design and validation",
     "about.section.profile": "Profile",
@@ -136,7 +138,7 @@ const translations = {
     "about.skill.backend": "Back-end / Services",
     "about.skill.tools": "Tools & Workflow",
     "about.timeline.title": "Experience",
-    "about.timeline.a.title": "E.SUN COMMERCIAL BANK - Senior UI/UX Designer",
+    "about.timeline.a.title": "<span class=\"timeline-title-main\">E.SUN COMMERCIAL BANK</span> <span class=\"skill-separator\">|</span> <span class=\"timeline-title-sub\">Senior UI/UX Designer</span>",
     "about.timeline.a.period": "10/2019 - 04/2025",
     "about.timeline.a.desc":
       "Analyzed user needs through NPS, Kano analysis, and Google Analytics data to develop cross-border product - UCB Mobile Banking App. Collaborated with Cambodian regulatory authorities, development teams, project managers, and other designers to optimize user experience, improve conversion rates and user satisfaction.",
@@ -151,16 +153,16 @@ const translations = {
     "about.timeline.a.projects.title": "Key Representative Projects:",
     "about.timeline.a.projects":
       "Overseas Subsidiary Mobile Banking, Intelligent System Counter, New Branch System, Internal Remittance System, New Recruitment System, Team Official Website, UX Course Planning and Teaching, Onboarding Journey Experience Enhancement, SME App",
-    "about.timeline.b.title": "Freelancer - Graphic Designer / UI/UX Designer",
+    "about.timeline.b.title": "<span class=\"timeline-title-main\">Freelancer</span> <span class=\"skill-separator\">|</span> <span class=\"timeline-title-sub\">Graphic Designer / UI/UX Designer</span>",
     "about.timeline.b.period": "2017 - Now",
     "about.timeline.b.desc":
-      "05/2025-10/2025 - Participated in UI/UX design for TicketRecipe, a cross-border startup's second-hand ticket trading platform Web.",
+      "Participated in UI/UX design for TicketRecipe, a cross-border startup's second-hand ticket trading platform Web.",
     "about.timeline.b.desc2":
-      "10/2023-01/2025 - Social media operation planning and design for Tianliao Biotechnology Digital Technology Co., Ltd. and its sub-brands, transforming complex biotech information into understandable visual content, independently completing various graphic design works for product promotion, brand image, and holiday campaigns.",
+      "Social media operation planning and design for Tianliao Biotechnology Digital Technology Co., Ltd. and its sub-brands, transforming complex biotech information into understandable visual content, independently completing various graphic design works for product promotion, brand image, and holiday campaigns.",
     "about.timeline.b.desc3":
-      "09/2018-03/2020 - Collaborated with 5% Design Action social design platform project, designed an online and offline service system, organized service processes, service blueprints, and planned APP and website architecture design.",
+      "Collaborated with 5% Design Action social design platform project, designed an online and offline service system, organized service processes, service blueprints, and planned APP and website architecture design.",
     "about.timeline.b.desc4":
-      "08/2017-06/2020 - Various event posters, recruitment materials design, and social media operation for Xiaohonglou Music Art Studio.",
+      "Various event posters, recruitment materials design, and social media operation for Xiaohonglou Music Art Studio.",
     "about.timeline.c.title": "Others",
     "about.timeline.c.desc": "2019 Germany iF Design Talent Award best of the year (UI/UX)",
     "about.timeline.c.desc2": "2019 Netherlands Indigo Design Award Silver (UI/UX)",
@@ -243,9 +245,11 @@ function applyTranslations(lang) {
       el.setAttribute(attrName, dict[key]);
     } else {
       const content = dict[key];
-      // 如果是 About Me 區塊的段落，處理 "|" 符號
-      if (el.tagName === "P" && (el.closest(".page-header") || el.parentElement?.classList.contains("page-header"))) {
-        el.innerHTML = content.replace(/\s*\|\s*/g, ' <span class="separator">|</span> ');
+      // 如果內容包含 HTML 標籤，使用 innerHTML，否則使用 textContent
+      if (content.includes('<span') || content.includes('<div') || content.includes('<p>') || content.includes('<b>') || content.includes('<strong>')) {
+        el.innerHTML = content;
+      } else if (el.tagName === "P" && (el.closest(".page-header") || el.parentElement?.classList.contains("page-header"))) {
+        el.innerHTML = content.replace(/\s*\|\s*/g, ' <span class="skill-separator">|</span> ');
       } else {
         el.textContent = content;
       }
